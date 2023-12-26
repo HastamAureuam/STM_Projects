@@ -41,4 +41,4 @@
 Матрица к работе готова.
 
 *Демонстрация работы программы на матрице*
-(https://drive.google.com/file/d/1-4KVl-UesqSdqfb9WOLUBF9ZFTMtfYPl/view?usp=drive_link)
+[Google disk](https://drive.google.com/file/d/1-4KVl-UesqSdqfb9WOLUBF9ZFTMtfYPl/view?usp=drive_link)
