@@ -69,8 +69,8 @@ int16_t X = 32;
 uint16_t Period = 70;
 uint16_t TickNum = 1; //150
 extern uint8_t data1[16], data2[16], data3[16], data4[16];
-int button; // значение кнопки
-int pbutton; // прошлое значение кнопки
+int button; 
+int pbutton; 
 
 
 void disp_row(int row){
@@ -215,24 +215,18 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  // Алгоритм, чтобы избавиться от дребезга контактов кнопки
-	  //=============================================================
+	   //=============================================================
 
-	  	  if(distance <7) { // значение тек. больше предыдушего
-	  		  jump_flag=1; // логическая метка прыжка, при нажатии на кнопку
+	  	  if(distance <7) { 
+	  		  jump_flag=1;
 	  	  }
-	  	  //else jump_flag = 0;
+	  	  
 
-	  //button = HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin);
-//	  if(button>pbutton) { // значение тек. больше предыдушего
-//		  jump_flag = 1; // логическая метка прыжка, при нажатии на кнопку
-//	  }
-//	  pbutton = button; // новое становится старым
-	  //=============================================================
+	  //======================================================
 
 	  sensor_time = Read_HCSR04();
 	  distance = sensor_time * .034 / 2;
-	  //distance = (distance -3);
+	  
 	  if (distance >20) distance = 20;
 	  if(distance <=0) distance = 0;
 
@@ -256,8 +250,6 @@ int main(void)
 	  			ys = ys + 0.33; // изменение координат птички, падение вниз
 	  			// ======================================================
 	  			// Обработка прыжка
-
-		  	  	//ys = distance;
 
 	  			if ((jump_flag == 1)&&(jump_time<4)){ // джамп тайм = кол-во кадров с начала прыжка
 	  				jump_time++; // Cчётчик кадров в прыжке
@@ -294,12 +286,10 @@ int main(void)
 
 
 	  		if(Pisdead == 1)
-	  		{
-//	  			if(fillflag == 0)
-//	  			{
-	  				disp1color_FillScreenbuff(0);
-	  				fillflag = 1;
-//	  			}
+			{
+	  			disp1color_FillScreenbuff(0);
+	  			fillflag = 1;
+
 	  			 for (int16_t x = 32; x > -((strSize + symbolDelay) * f6x8_MONO_WIDTH); x--){
 	  			disp1color_printf(x, 4, FONTID_6X8M, pMyStr);
 	  			disp1color_UpdateFromBuff(); //Перевод рассчитанных данных в массив
@@ -321,10 +311,7 @@ int main(void)
 	  			disp_row(1);
 	  			disp_row(2);
 	  			disp_row(3);
-	  		}
-//	  	  disp1color_DrawRectangle(2,4,5,8);
-//	  disp1color_UpdateFromBuff(); //Перевод рассчитанных данных в массив
-//	  prepare_data(); //Разбиение массива на массивы под каждую строку
+			}
   }
   /* USER CODE END 3 */
 }
